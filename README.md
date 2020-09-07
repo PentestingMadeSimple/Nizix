@@ -9,33 +9,37 @@
 2. Crea un droplet e loggati col terminale via ssh:
 
 	``` $ssh root@tuoip ``` 
-	`$inserisci la pass
+	
+	``` $inserisci la pass ```
 
 3. Fare update del nuovo sistema:
 
-	$apt update
+	``` $apt update ```
 	 
 Ora prima di installare NGINX, controlliamo APACHE che è il server montato di default su Ubuntu.
 	 
 Poi:
 
-	$apt install nginx -y
-	$apt-get install -y php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip,cli,fpm}
+	``` $apt install nginx -y ```
+	
+	``` $apt-get install -y php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip,cli,fpm} ```
  
 4. Abilita come servizi il server e PHP:
 
-	$systemctl enable nginx.service
-	$systemctl enable php7.4-fpm.service 
+	``` $systemctl enable nginx.service ```
+	
+	``` $systemctl enable php7.4-fpm.service ```
  
 5. Apri il file di conf di NGINX:
 
-	$/etc/nginx/sites-available/default 
+	``` $/etc/nginx/sites-available/default ```
 
 e modifica così:
 
 
 aggiungi index.php 
 
+	```
 	location ~ \.php$ {
     		try_files $uri =404;
     		include /etc/nginx/fastcgi_params;
@@ -43,15 +47,16 @@ aggiungi index.php
     		fastcgi_index index.php;
     		fastcgi_param SCRIPT_FILENAME /var/www/html/$fastcgi_script_name;
 	}
+	```
 
-# Per sapere se il file di configurazione funzionerà digita:
+Per sapere se il file di configurazione funzionerà digita:
 
-	$nginx -t
+	``` $nginx -t ```
  
  
-# Restart NGINX:
+Restart NGINX:
 
-	$service nginx restart
+	``` $service nginx restart ```
  
  
  ##################################################################################
