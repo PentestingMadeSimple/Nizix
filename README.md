@@ -51,12 +51,12 @@ aggiungi index.php
 
 Per sapere se il file di configurazione funzionerà digita:
 
-	``` $nginx -t ```
+	$nginx -t
  
  
 Restart NGINX:
 
-	``` $service nginx restart ```
+	$service nginx restart
  
  
  ##################################################################################
