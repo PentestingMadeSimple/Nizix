@@ -24,7 +24,7 @@ Poi:
 	
 	$apt-get install -y php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip,cli,fpm}
  
-4. Abilita come servizi il server e PHP:
+4. Abilita i servizi, del server e del PHP:
 
 	``` $systemctl enable nginx.service ```
 	
@@ -53,7 +53,10 @@ Per sapere se il file di configurazione funzionerà digita:
 
 	$nginx -t
  
- 
+Poi riavvio:
+
+	$service php7.4-fpm reload
+
 Restart NGINX:
 
 	$service nginx restart
