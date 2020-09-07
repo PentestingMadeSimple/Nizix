@@ -20,9 +20,9 @@ Ora prima di installare NGINX, controlliamo APACHE che è il server montato di d
 	 
 Poi:
 
-	``` $apt install nginx -y ```
+	$apt install nginx -y
 	
-	``` $apt-get install -y php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip,cli,fpm} ```
+	$apt-get install -y php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip,cli,fpm}
  
 4. Abilita come servizi il server e PHP:
 
@@ -39,7 +39,7 @@ e modifica così:
 
 aggiungi index.php 
 
-	```
+	
 	location ~ \.php$ {
     		try_files $uri =404;
     		include /etc/nginx/fastcgi_params;
@@ -47,7 +47,7 @@ aggiungi index.php
     		fastcgi_index index.php;
     		fastcgi_param SCRIPT_FILENAME /var/www/html/$fastcgi_script_name;
 	}
-	```
+	
 
 Per sapere se il file di configurazione funzionerà digita:
 
